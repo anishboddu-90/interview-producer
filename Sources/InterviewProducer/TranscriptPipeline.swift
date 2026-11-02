@@ -72,10 +72,9 @@ actor TranscriptPipeline {
                     if !cancelled { await onLine(InterviewLine(start:item.start,end:item.end,speaker:item.speaker,text:text)) }
                     continue
                 }
-                guard let keyData = ProducerSecrets.read("groq"), let key = String(data:keyData,encoding:.utf8), !key.isEmpty else { throw ProducerError.message("Groq key missing; audio is recorded but not transcribed.") }
                 var text: String?
                 for attempt in 0..<2 {
-                    do { text = try await GroqTranscriber.transcribe(samples:item.samples,language:"en",apiKey:key,prompt:nil); break }
+                    do { text = try await TranscriptionProvider.transcribe(item); break }
                     catch {
                         guard attempt == 0, error is URLError else { throw error }
                         try await Task.sleep(for:.seconds(2))

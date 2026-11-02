@@ -51,7 +51,7 @@ struct InterviewRepository {
         editorial = EditorialService(archive:archive,inference:inference)
         storyEngine = StoryEngine(memory:archive,inference:inference)
         lifelineEngine = LifelineEngine(memory:archive,inference:inference)
-        transcriptionReady = { ProducerDefaults.shared.bool(forKey:"producer.groqFreeConfirmed") && ProducerSecrets.read("groq") != nil }
+        transcriptionReady = { TranscriptionProvider.ready }
         microphonePermission = { await PermissionFlow.requestMicrophone() }
         self.transcriber = transcriber; showsPanels = root == nil
     }

@@ -78,6 +78,10 @@ enum ProducerInference {
     static var useGroq: Bool { ProducerDefaults.shared.bool(forKey:"producer.groqEditorial") }
     static var model: String { ProducerDefaults.shared.string(forKey:useGroq ? "producer.groqTextModel" : "producer.model") ?? "" }
     static func complete(instructions: String,input: String) async throws -> String {
+        if APIConfiguration.enabled("text") {
+            let config = APIConfiguration.load("text")
+            return try await CompatibleProvider.complete(config:config,key:config.key("text"),instructions:instructions,input:input)
+        }
         if !useGroq { return try await ChatGPTSession.shared.complete(model:model,instructions:instructions,input:input) }
         guard ProducerDefaults.shared.bool(forKey:"producer.groqFreeConfirmed"),
               let data = ProducerSecrets.read("groq"), let key = String(data:data,encoding:.utf8), !key.isEmpty,

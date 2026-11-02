@@ -110,7 +110,7 @@ enum WAVEncoder {
 
         var pcm = [Int16](repeating: 0, count: samples.count)
         for (i, s) in samples.enumerated() {
-            pcm[i] = Int16(max(-1, min(1, s)) * 32767)
+            pcm[i] = Int16((s.isFinite ? max(-1, min(1, s)) : 0) * 32767)
         }
         pcm.withUnsafeBufferPointer { ptr in
             out.append(UnsafeBufferPointer(start: UnsafeRawPointer(ptr.baseAddress!)

@@ -84,6 +84,6 @@ struct ProducerApp: App {
             Button("Stop capture now") { Task { await controller.stop() } }.disabled(!controller.isRecording)
             Button(controller.alertsMuted ? "Resume analysis" : "Mute analysis") { controller.toggleMute() }
         } label: { Label(controller.isRecording ? "REC" : "Producer",systemImage:controller.isRecording ? "record.circle.fill" : "waveform") }
-        Settings { ProducerConnectionView().frame(width:650,height:730) }
+        Settings { ProducerConnectionView().environment(controller).frame(width:650,height:730) }
     }
 }

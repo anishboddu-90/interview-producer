@@ -3,6 +3,7 @@ import AppKit
 @preconcurrency import AVFoundation
 
 struct ProducerConnectionView: View {
+    @Environment(InterviewController.self) private var controller
     @State private var account = "Not connected"
     @State private var status = "Connect, choose an eligible model, then test actual inference."
     @State private var busy = false
@@ -16,6 +17,8 @@ struct ProducerConnectionView: View {
     @AppStorage("producer.groqTextModel",store:ProducerDefaults.shared) private var groqModel = "openai/gpt-oss-20b"
     var body: some View {
         Form {
+            APIConnectionView(kind:"text")
+            APIConnectionView(kind:"audio")
             Section("ChatGPT plan") {
                 Text(account).textSelection(.enabled)
                 Button(busy ? "Connecting…" : "Continue with ChatGPT") { connect() }.disabled(busy)
@@ -60,7 +63,7 @@ struct ProducerConnectionView: View {
                 Toggle("I checked that this Groq organization is on Free with no paid billing",isOn:$freeConfirmed)
                 Text("Audio → Groq whisper-large-v3-turbo. Published free limits: 20 requests/minute, 7,200 audio seconds/hour, 28,800/day. Local guards are lower and include retries; your organization's other usage also counts. This app cannot inspect your billing plan.").font(.caption).foregroundStyle(.secondary)
                 Link("Check Groq plan and limits",destination:URL(string:"https://console.groq.com/settings/limits")!)
-                Button("Test transcription with a local audio file…") { testAudio() }.disabled(busy || !freeConfirmed)
+                Button("Test selected transcription provider with audio…") { testAudio() }.disabled(busy || !TranscriptionProvider.ready)
             }
             Section("Optional free text provider") {
                 Toggle("Use Groq Free for editorial analysis instead of ChatGPT",isOn:$groqEditorial)
@@ -68,7 +71,7 @@ struct ProducerConnectionView: View {
                 if groqEditorial { TextField("Groq text model",text:$groqModel) }
             }
             Section("Connection status") { Text(status).textSelection(.enabled).foregroundStyle(.secondary) }
-        }.formStyle(.grouped).task { account = await ChatGPTSession.shared.accountLabel(); if await ChatGPTSession.shared.hasPermission() { await fetchModels() } }
+        }.formStyle(.grouped).disabled(controller.isStarting || controller.isRecording || controller.isStopping).task { account = await ChatGPTSession.shared.accountLabel(); if await ChatGPTSession.shared.hasPermission() { await fetchModels() } }
     }
     private func connect() {
         busy = true; status = "Finish authorization in your browser. This app will verify the returned identity and plan permission."
@@ -88,7 +91,6 @@ struct ProducerConnectionView: View {
         busy = true
         Task {
             do {
-                guard let d = ProducerSecrets.read("groq"), let key = String(data:d,encoding:.utf8) else { throw ProducerError.message("Save your Groq key first.") }
                 let file = try AVAudioFile(forReading:url)
                 guard file.length <= Int64(file.fileFormat.sampleRate*30), let converter = AVAudioConverter(from:file.processingFormat,to:AVAudioFormat(standardFormatWithSampleRate:16000,channels:1)!),
                       let input = AVAudioPCMBuffer(pcmFormat:file.processingFormat,frameCapacity:AVAudioFrameCount(file.length)),
@@ -97,7 +99,7 @@ struct ProducerConnectionView: View {
                 converter.convert(to:output,error:&err) { _,state in if sent { state.pointee = .endOfStream; return nil }; sent = true; state.pointee = .haveData; return input }
                 if let err { throw err }
                 guard let ptr = output.floatChannelData?.pointee else { throw ProducerError.message("Could not decode the file.") }
-                let text = try await GroqTranscriber.transcribe(samples:Array(UnsafeBufferPointer(start:ptr,count:Int(output.frameLength))),language:"en",apiKey:key)
+                let text = try await TranscriptionProvider.transcribe(AudioChunk(speaker:.them,start:0,end:Double(output.frameLength)/16000,samples:Array(UnsafeBufferPointer(start:ptr,count:Int(output.frameLength)))))
                 status = "Real transcription result: \(text)"
             } catch { status = "Transcription not verified: \(error.localizedDescription)" }
             busy = false
