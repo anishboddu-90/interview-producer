@@ -1,0 +1,620 @@
+[
+  {
+    "conversation_id" : "synthetic-noise-research",
+    "create_time" : 1699999999.75,
+    "current_node" : "u9",
+    "id" : "synthetic-noise-research",
+    "mapping" : {
+      "a1" : {
+        "children" : [
+          "u2"
+        ],
+        "id" : "a1",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Project Aurora definitely uses a regular four-to-the-floor beat. Alex consciously abandoned noise in 2019."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-a1",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u1"
+      },
+      "a2" : {
+        "children" : [
+          "u3"
+        ],
+        "id" : "a2",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "That intention claim was speculation. Ask rather than assert it."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-a2",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u2"
+      },
+      "a3" : {
+        "children" : [
+          "u4",
+          "old-u4"
+        ],
+        "id" : "a3",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Compare texture and rhythm without assuming a simple linear evolution."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-a3",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u3"
+      },
+      "a4" : {
+        "children" : [
+          "u5"
+        ],
+        "id" : "a4",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Perhaps repeat the founding story; that might supply useful context."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-a4",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u4"
+      },
+      "a5" : {
+        "children" : [
+          "u6"
+        ],
+        "id" : "a5",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Prioritize current organizers and missing reporting angles."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-a5",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u5"
+      },
+      "hidden" : {
+        "children" : [
+          "tool"
+        ],
+        "id" : "hidden",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "HiddenOnlyNeverRetrieve"
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-hidden",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : true,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u6"
+      },
+      "old-a4" : {
+        "children" : [
+
+        ],
+        "id" : "old-a4",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "assistant"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "ALTERNATE_REPLY_ONLY: Alex stopped all electronics. This is unverified and was not the active conversation."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-old-a4",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "old-u4"
+      },
+      "old-u4" : {
+        "children" : [
+          "old-a4"
+        ],
+        "id" : "old-u4",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "DiscardedDraftOnly: Project Beacon is purely acoustic. I edited this prompt away."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-old-u4",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a3"
+      },
+      "root" : {
+        "children" : [
+          "u1"
+        ],
+        "id" : "root",
+        "message" : null,
+        "parent" : null
+      },
+      "tool" : {
+        "children" : [
+          "u7"
+        ],
+        "id" : "tool",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "tool"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "ToolResultOnlyPreserveRaw"
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-tool",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "hidden"
+      },
+      "u1" : {
+        "children" : [
+          "a1"
+        ],
+        "id" : "u1",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Listening observation: Project Aurora feels intense and unsettling, with sustained abrasive sounds and minimal traditional rhythm. That is my impression, not a verified statement of artistic intention."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u1",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "root"
+      },
+      "u2" : {
+        "children" : [
+          "a2"
+        ],
+        "id" : "u2",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "No, that is not what I heard. I meant a sustained abrasive atmosphere, not a regular beat. Do not attribute that intention to Alex; it is my subjective listening impression."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u2",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a1"
+      },
+      "u3" : {
+        "children" : [
+          "a3"
+        ],
+        "id" : "u3",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Project Beacon sounds more varied to me: electronic textures, rhythms and contrasts, with an almost corrupted-IDM quality. I want to ask whether that comes from conscious decisions or different projects."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u3",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a2"
+      },
+      "u4" : {
+        "children" : [
+          "a4"
+        ],
+        "id" : "u4",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "What continued after Cedar Workshop stopped being a physical house venue?"
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u4",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a3"
+      },
+      "u5" : {
+        "children" : [
+          "a5"
+        ],
+        "id" : "u5",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Correction: the Cedar Workshop origin story is already covered. I already asked what continued after the house venue; the interviewee answered that organizers kept booking in other spaces. Explore who sustained that work instead."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u5",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a4"
+      },
+      "u6" : {
+        "children" : [
+          "hidden"
+        ],
+        "id" : "u6",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Published reference to check: https://example.test/harbor/history . This article is prior coverage, not something the assistant independently verified."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u6",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "a5"
+      },
+      "u7" : {
+        "children" : [
+          "u8"
+        ],
+        "id" : "u7",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Exact Unicode: café 🎛️ — “quoted”\nsecond line\twith tab\u0000after-null"
+            ]
+          },
+          "create_time" : null,
+          "id" : "message-u7",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "tool"
+      },
+      "u8" : {
+        "children" : [
+          "u9"
+        ],
+        "id" : "u8",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly. Extended listening notebook preserves every observation exactly.  TapeGhostCollage unique source relationship. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. DoNotUploadWholeArchive. "
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u8",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u7"
+      },
+      "u9" : {
+        "children" : [
+
+        ],
+        "id" : "u9",
+        "message" : {
+          "author" : {
+            "metadata" : {
+              "preserve_this" : "author value"
+            },
+            "name" : null,
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "multimodal_text",
+            "parts" : [
+              "Image caption: a handwritten reporting plan.",
+              {
+                "asset_pointer" : "file-service://preserve-image-reference",
+                "content_type" : "image_asset_pointer",
+                "size_bytes" : 1234
+              },
+              "Another exact text part."
+            ]
+          },
+          "create_time" : 1700000000.125,
+          "id" : "message-u9",
+          "metadata" : {
+            "is_visually_hidden_from_conversation" : false,
+            "unknown_export_field" : {
+              "exact" : "preserve me"
+            }
+          },
+          "update_time" : null
+        },
+        "parent" : "u8"
+      }
+    },
+    "title" : "SYNTHETIC TEST — Harbor City listening observations",
+    "unknown_conversation_metadata" : {
+      "keep" : [
+        1,
+        2,
+        3
+      ],
+      "wording" : "unchanged"
+    },
+    "update_time" : 1700001000.5
+  },
+  {
+    "current_node" : "p",
+    "id" : "unselected-private",
+    "mapping" : {
+      "p" : {
+        "children" : [
+
+        ],
+        "id" : "p",
+        "message" : {
+          "author" : {
+            "role" : "user"
+          },
+          "content" : {
+            "content_type" : "text",
+            "parts" : [
+              "UnselectedPrivateCanary"
+            ]
+          },
+          "create_time" : 123,
+          "id" : "private"
+        },
+        "parent" : null
+      }
+    },
+    "title" : "SYNTHETIC TEST — unrelated, do not import"
+  }
+]

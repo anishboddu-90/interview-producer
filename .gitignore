@@ -1,0 +1,21 @@
+# Build products and local state
+.build/
+dist/
+.DS_Store
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+*.sqlite*
+*.db
+*.caf
+*.aiff
+*.mp3
+*.zip
+*results*.txt
+*results*.md
+Private*/
+Personal*/

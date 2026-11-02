@@ -1,0 +1,27 @@
+[
+  {
+    "speaker": "me",
+    "text": "This is a synthetic software test. What did you hear in Project Aurora and Project Beacon?",
+    "file": "turn-0.wav"
+  },
+  {
+    "speaker": "them",
+    "text": "This is fictional rehearsal testimony. The fictional Cedar Route exchange began in 2018. A Portland organizer swapped bills with us. Compare the fictional Tape Cedar with Tape Elm. Listen for pulsing delay and thinner electronic layers. It is a comparison of two recordings, not a claim about the whole scene.",
+    "file": "turn-1.wav"
+  },
+  {
+    "speaker": "me",
+    "text": "Who made an overlooked contribution to those performances?",
+    "file": "turn-2.wav"
+  },
+  {
+    "speaker": "them",
+    "text": "A fictional volunteer called Test Rowan repaired the tape machines. That repair work changed what our group could perform. There was a turning point when we nearly stopped organizing shows altogether.",
+    "file": "turn-3.wav"
+  },
+  {
+    "speaker": "me",
+    "text": "Interesting. Let us switch to this week's timetable and the dates of the next shows.",
+    "file": "turn-4.wav"
+  }
+]

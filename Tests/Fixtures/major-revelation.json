@@ -1,0 +1,18 @@
+{
+  "synthetic": true,
+  "lines": [
+    {
+      "start": 10,
+      "end": 16,
+      "speaker": "them",
+      "text": "There was a point when we nearly stopped organizing shows altogether."
+    },
+    {
+      "start": 17,
+      "end": 22,
+      "speaker": "me",
+      "text": "Interesting. So how has the music changed?"
+    }
+  ],
+  "expected": "A neutral question about what nearly ended the shows."
+}
