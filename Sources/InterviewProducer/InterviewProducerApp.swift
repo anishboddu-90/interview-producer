@@ -3,7 +3,7 @@ import SwiftUI
 @main struct InterviewProducerMain {
     static func main() {
         if CommandLine.arguments.contains("--self-test") { Task { @MainActor in
-            let core = await ProducerTests.run(); let memory = await MemoryTests.run(); let story = await StoryTests.run(); let lifeline = await LifelineTests.run(); let integration = await IntegrationTests.run(); exit(core == 0 && memory == 0 && story == 0 && lifeline == 0 && integration == 0 ? 0 : 1)
+            let portability = await GeneralizationTests.run(); let core = await ProducerTests.run(); let memory = await MemoryTests.run(); let story = await StoryTests.run(); let lifeline = await LifelineTests.run(); let integration = await IntegrationTests.run(); exit(portability == 0 && core == 0 && memory == 0 && story == 0 && lifeline == 0 && integration == 0 ? 0 : 1)
         }; dispatchMain() }
         if let i = CommandLine.arguments.firstIndex(of:"--zoom-speech-test"), i+1 < CommandLine.arguments.count {
             let root = URL(fileURLWithPath:CommandLine.arguments[i+1])

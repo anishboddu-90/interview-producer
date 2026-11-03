@@ -19,12 +19,12 @@ actor RehearsalModel {
         calls += 1; observe(input)
         prompts.append(input)
         if mode == .unavailable { throw ProducerError.message("Injected provider outage") }
-        if system.contains("Prepare a concise pre-interview brief") { return try StoryFixtures.json(StoryFixtures.brief()) }
+        if system.contains("Prepare a concise pre-interview brief") { return try fixtureJSON(StoryFixtures.brief(),input:input) }
         guard let record = await box.controller?.record else { throw ProducerError.message("Rehearsal controller has no record") }
         let supplied = StoryEvidence.passages([record]).filter { input.contains($0.id) }
         if system.contains("Write a rigorous post-interview editorial report") {
             var sourceRecord = record; sourceRecord.lines = record.lines.filter { $0.speaker == .them }
-            return try StoryFixtures.json(StoryFixtures.report(sourceRecord))
+            return try fixtureJSON(StoryFixtures.report(sourceRecord),input:input)
         }
         if system.contains("Update the competing investigations") {
             struct Review: Encodable { var directions: [StoryLead] }
@@ -53,6 +53,12 @@ actor RehearsalModel {
             return try StoryFixtures.json(EditorialEnvelope(decision:d,threads:threads,resolved_titles:[],source_refs:[],lifeline_review:review))
         }
         return try StoryFixtures.json(review)
+    }
+    private func fixtureJSON<T: Encodable>(_ value: T,input: String) throws -> String {
+        let regex = try NSRegularExpression(pattern:#"\[PUB-[a-zA-Z0-9-]+\]"#)
+        let range = NSRange(input.startIndex...,in:input)
+        guard let match = regex.firstMatch(in:input,range:range),let r = Range(match.range,in:input) else { throw ProducerError.message("Synthetic rehearsal requires its explicit publication fixture.") }
+        return try StoryFixtures.json(value).replacingOccurrences(of:"COV-DEMO-2015",with:String(input[r].dropFirst().dropLast()))
     }
     private struct BankItem { var id: String; var status: String; var manual: Bool }
     private static func bank(_ input: String) -> [BankItem] {

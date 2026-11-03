@@ -119,7 +119,7 @@ import AVFoundation
             isRecording = true
             showPrivatePanel()
             record?.systemAudioPath = audio.systemAudioURL?.path; record?.micAudioPath = audio.micAudioURL?.path
-            transcriptionStatus = dependencies.isRehearsal ? "Synthetic audio replay · normal transcription pipeline" : "Waiting for speech · Groq Free"
+            transcriptionStatus = dependencies.isRehearsal ? "Synthetic audio replay · normal transcription pipeline" : "Waiting for speech · selected transcription provider"
             persist()
             timerTask = Task { [weak self] in
                 while !Task.isCancelled {
@@ -163,11 +163,12 @@ import AVFoundation
         pendingAnalysis = false; analysisRunning = false; lastAnalysis = .distantPast
         hidePrivatePanel()
     }
-    static let waitingForZoomSpeech = "Waiting for Zoom speech. If the interviewee is speaking, check the Zoom speaker and macOS audio permission."
+    static let waitingForZoomSpeech = "Waiting for call audio. If the interviewee is speaking, check the selected call application speaker and macOS audio permission."
     func refreshCaptureStatus(now: Date = Date()) {
+        guard !InterviewSettings.current.microphoneOnly else { return }
         if audio.audioLevel >= 0.0001 {
             lastZoomActivity = now
-            if transcriptionStatus == Self.waitingForZoomSpeech { transcriptionStatus = "Zoom speech detected · waiting for transcription" }
+            if transcriptionStatus == Self.waitingForZoomSpeech { transcriptionStatus = "Call audio detected · waiting for transcription" }
         } else if elapsed > 20 && now.timeIntervalSince(lastZoomActivity) > 15 && lifelineTranscriptHealthy {
             transcriptionStatus = Self.waitingForZoomSpeech
         }
