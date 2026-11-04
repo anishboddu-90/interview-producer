@@ -102,6 +102,8 @@ class Memory:
         self.db.row_factory = sqlite3.Row
         self.db.executescript("""
         PRAGMA foreign_keys=ON;
+        PRAGMA journal_mode=WAL;
+        PRAGMA busy_timeout=5000;
         CREATE TABLE IF NOT EXISTS conversations(id TEXT PRIMARY KEY, original_id TEXT, title TEXT, raw BLOB, source TEXT, excluded INTEGER DEFAULT 0);
         CREATE TABLE IF NOT EXISTS nodes(conversation TEXT REFERENCES conversations(id) ON DELETE CASCADE, node TEXT, role TEXT, text TEXT, active INTEGER, position INTEGER, PRIMARY KEY(conversation,node));
         CREATE TABLE IF NOT EXISTS passages(id TEXT PRIMARY KEY, conversation TEXT REFERENCES conversations(id) ON DELETE CASCADE, node TEXT, role TEXT, text TEXT, context TEXT, reference TEXT, active INTEGER);
@@ -254,8 +256,8 @@ class Session:
             old = set(re.findall(r"\w+",saved["decision"]["suggested_question"].lower()))
             if words and len(words & old)/len(words | old) > .65:
                 return False
-        refs = {"INT-"+line["id"]:{"id":"INT-"+line["id"],"excerpt":line["text"],"reference":f"Current transcript {line['start']}s", "role":line["speaker"]} for line in self.record["lines"][-80:]}
-        refs.update({p["id"]:{"id":p["id"],"excerpt":p["text"],"reference":p["reference"],"role":p["role"]} for p in historical})
+        refs = {"INT-"+line["id"]:{"id":"INT-"+line["id"],"excerpt":line["text"],"reference":f"Current transcript {line['start']}s", "role":line["speaker"],"origin":"interview","title":self.record["title"],"classification":"Attributed testimony, not independent verification","context":"","conversationID":self.record["id"],"nodeID":line["id"]} for line in self.record["lines"][-80:]}
+        refs.update({p["id"]:{"id":p["id"],"excerpt":p["text"],"reference":p["reference"],"role":p["role"],"origin":"conversation","title":p["title"],"classification":"Assistant interpretation" if p["role"]=="assistant" else "User observation or claim — unverified","context":p["context"],"conversationID":p["conversation"],"nodeID":p["node"]} for p in historical})
         citations = result.get("citations",[])
         if not citations or not any(c.get("ref","").startswith("INT-") for c in citations):
             raise ValueError("Follow-up requires an exact current-transcript citation.")
