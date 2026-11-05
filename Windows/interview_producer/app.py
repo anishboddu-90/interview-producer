@@ -296,4 +296,17 @@ class App:
 def main():
     if sys.platform!="win32":
         print("Windows desktop preview requires Windows 10/11. Core tests run on any platform.");return 1
+    if "--smoke-test" in sys.argv:
+        import tempfile
+        with tempfile.TemporaryDirectory() as temp:
+            window=tk.Tk();window.withdraw();app=App(window,root=temp)
+            window.update_idletasks();window.update()
+            app.fields["source"].set("Synthetic bootstrap source")
+            app.fields["topic"].set("Synthetic bootstrap topic")
+            app.question_text.insert("1.0","What changed, and what records show it?")
+            app.save_questions();app.next_question()
+            assert app.settings["question_banks"]["synthetic bootstrap source"]["next"] == 1
+            app.close()
+            assert (Path(temp)/"settings.json").exists()
+        return 0
     window=tk.Tk();App(window);window.mainloop();return 0
