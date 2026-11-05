@@ -44,7 +44,7 @@ struct InterviewSetupView: View {
                 Text("Microphone-only mode works for in-person interviews and practice without a call app. It labels all captured voices as the microphone channel; it does not identify individual people.").font(.caption).foregroundStyle(.secondary)
             }
         }.formStyle(.grouped).onAppear { refresh() }
-        .disabled(controller.isStarting || controller.isRecording || controller.isStopping)
+        .disabled(controller.isStarting || controller.isRecording || controller.isStopping || controller.processingReport || controller.stories.busy)
     }
     private func refresh() {
         apps = Dictionary(NSWorkspace.shared.runningApplications.compactMap { app -> (String,String)? in

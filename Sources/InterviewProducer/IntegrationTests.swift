@@ -24,7 +24,7 @@ import AVFoundation
             try FileManager.default.createDirectory(at:folder,withIntermediateDirectories:true)
             if live && !allowCredentialInteraction {
                 // A headless diagnostic must not wait indefinitely on a Keychain approval dialog.
-                let account = ProducerInference.useGroq ? "groq" : "chatgpt-session"
+                let account = APIConfiguration.enabled("text") ? APIConfiguration.load("text").keyName("text") : (ProducerInference.useGroq ? "groq" : "chatgpt-session")
                 guard await cloudCredentialsAvailable(account:account) else {
                     let detail = "Cloud rehearsal blocked: macOS Keychain has not authorized this build to read the existing credentials without interaction. No provider request was made. Open the updated app and reconnect in Connection, then rerun the cloud diagnostic. Credentials were not modified."
                     try detail.write(to:folder.appendingPathComponent("REHEARSAL-BLOCKED.txt"),atomically:true,encoding:.utf8)
@@ -42,7 +42,7 @@ import AVFoundation
                 if live { await model.observe(input); return try await ProducerInference.complete(instructions:system,input:input) }
                 return try await model.complete(system,input)
             },transcriber:injected)
-            d.transcriptionReady = live ? { ProducerDefaults.shared.bool(forKey:"producer.groqFreeConfirmed") && ProducerSecrets.read("groq") != nil } : { true }
+            d.transcriptionReady = live ? { TranscriptionProvider.ready } : { true }
             d.microphonePermission = { true }; d.debounce = 0.02; d.analysisInterval = 0.05; d.drainTimeout = live ? 90 : 1
             d.onChunk = { chunks.append($0) }
             var profile = LifelineFixtures.profile; profile.source = "SYNTHETIC rehearsal source"
@@ -220,7 +220,7 @@ import AVFoundation
                 check(statusController.transcriptionStatus == "Synthetic network gap","silence guidance cannot hide a transcription error")
                 statusAudio.audioLevel = 0.06; statusController.transcriptionStatus = InterviewController.waitingForZoomSpeech
                 statusController.refreshCaptureStatus(now:clock.addingTimeInterval(91))
-                check(statusController.transcriptionStatus.contains("Zoom speech detected"),"new Zoom audio clears conditional waiting guidance before the ASR reply")
+                check(statusController.transcriptionStatus.contains("Call audio detected"),"new Zoom audio clears conditional waiting guidance before the ASR reply")
             } else { check(false,"status regression controller starts") }
             await statusController.stop()
             let folder = root.appendingPathComponent("Lifecycle-regressions")

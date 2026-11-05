@@ -19,3 +19,6 @@ __pycache__/
 *results*.md
 Private*/
 Personal*/
+
+Windows/build/
+Windows/*.spec

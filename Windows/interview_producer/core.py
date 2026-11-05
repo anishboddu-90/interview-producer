@@ -134,17 +134,18 @@ class Memory:
                     continue
                 root = item["object"]
                 path = active_path(root)
+                positions = {node:i for i,node in enumerate(path)}
                 self.db.execute("INSERT INTO conversations(id,original_id,title,raw,source) VALUES(?,?,?,?,?)", (cid,item["id"],item["title"],raw,item["source"]))
                 for nid, node in root["mapping"].items():
                     message = node.get("message") or {}
                     role = message.get("author", {}).get("role", "unknown")
                     text = message_text(message)
-                    is_active = nid in path
-                    self.db.execute("INSERT INTO nodes VALUES(?,?,?,?,?,?)", (cid,nid,role,text,is_active,path.index(nid) if is_active else -1))
+                    is_active = nid in positions
+                    self.db.execute("INSERT INTO nodes VALUES(?,?,?,?,?,?)", (cid,nid,role,text,is_active,positions.get(nid,-1)))
                     # Parent-only exports and non-chronological object order are supported.
                     neighbors = []
                     if is_active:
-                        position = path.index(nid)
+                        position = positions[nid]
                         for other in path[max(0,position-2):position+2]:
                             msg = root["mapping"][other].get("message") or {}
                             neighbors.append(msg.get("author",{}).get("role","unknown")+": "+message_text(msg))
@@ -158,7 +159,8 @@ class Memory:
         return imported
 
     def search(self, query, include_excluded=False, limit=30):
-        words = list(dict.fromkeys(re.findall(r"[^\W_]{2,}",query.lower(),re.UNICODE)))[:16]
+        stop = {"the","and","that","this","what","when","where","which","with","from","have","there","they","were","was","for","you","your","our","not","but","because"}
+        words = [word for word in dict.fromkeys(re.findall(r"[^\W_]{2,}",query.lower(),re.UNICODE)) if word not in stop][:16]
         if not words:
             return []
         match = " OR ".join('"'+word+'"' for word in words)

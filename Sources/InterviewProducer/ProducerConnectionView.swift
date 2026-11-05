@@ -71,7 +71,7 @@ struct ProducerConnectionView: View {
                 if groqEditorial { TextField("Groq text model",text:$groqModel) }
             }
             Section("Connection status") { Text(status).textSelection(.enabled).foregroundStyle(.secondary) }
-        }.formStyle(.grouped).disabled(controller.isStarting || controller.isRecording || controller.isStopping).task { account = await ChatGPTSession.shared.accountLabel(); if await ChatGPTSession.shared.hasPermission() { await fetchModels() } }
+        }.formStyle(.grouped).disabled(controller.isStarting || controller.isRecording || controller.isStopping || controller.processingReport || controller.stories.busy).task { account = await ChatGPTSession.shared.accountLabel(); if await ChatGPTSession.shared.hasPermission() { await fetchModels() } }
     }
     private func connect() {
         busy = true; status = "Finish authorization in your browser. This app will verify the returned identity and plan permission."

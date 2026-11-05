@@ -40,7 +40,7 @@ import AVFoundation
     var isStopping = false
     var simulating = false
     var alertsMuted = false
-    var editorStatus = "Connect ChatGPT, then select and test a model."
+    var editorStatus = "Choose and test an editorial provider in Connection."
     var transcriptionStatus = "Not capturing"
     var message = ""
     var activeSuggestion: SavedSuggestion?
@@ -92,7 +92,7 @@ import AVFoundation
             guard startAttempt == attempt, !Task.isCancelled else { throw CancellationError() }
             guard let id = record?.id else { throw ProducerError.message("The interview session could not be prepared.") }
             createdRecord = id
-            record?.consent = dependencies.isRehearsal ? "SYNTHETIC REHEARSAL — prerecorded generated voices; no real participant." : "Journalist confirmed interviewee consent before capture, including Groq audio, AI text processing and relevant local research/memory excerpts."
+            record?.consent = dependencies.isRehearsal ? "SYNTHETIC REHEARSAL — prerecorded generated voices; no real participant." : "Journalist confirmed interviewee consent before capture, including selected-provider audio transcription, AI text processing and relevant local research/memory excerpts."
             origin = Date(); lastZoomActivity = origin
             let p = TranscriptPipeline(onLine:{ [weak self] line in await self?.receive(line,session:id) },onError:{ [weak self] error in await self?.transcriptionError(error,session:id) },transcriber:dependencies.transcriber)
             pipeline = p

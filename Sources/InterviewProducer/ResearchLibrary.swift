@@ -13,15 +13,19 @@ struct ResearchDocument: Codable, Identifiable {
     var error = ""
     @ObservationIgnored private var cachedPassages: [(Set<String>,ResearchEvidence)]? = nil
     private let url: URL
+    private var writable = true
     init(url: URL? = nil,includeDefaults: Bool = true) {
         self.url = url ?? InterviewStore.directory.deletingLastPathComponent().appendingPathComponent("research.json")
         try? FileManager.default.createDirectory(at:self.url.deletingLastPathComponent(),withIntermediateDirectories:true,attributes:[.posixPermissions:0o700])
-        documents = (try? JSONDecoder().decode([ResearchDocument].self,from:Data(contentsOf:self.url))) ?? []
+        if FileManager.default.fileExists(atPath:self.url.path) {
+            do { documents = try JSONDecoder().decode([ResearchDocument].self,from:Data(contentsOf:self.url)) }
+            catch { writable = false; self.error = "Research could not be read and will not be overwritten: \(error.localizedDescription)" }
+        }
         // Empty by default. An empty library must not silently resurrect deleted starter material.
     }
     // Synthetic coverage is used only by the explicit test harness.
     static let published = "SYNTHETIC EXAMPLE: Cedar Workshop origins were previously reported in Example Gazette. Claims remain attributed and need primary-source checks."
-    func save() { cachedPassages = nil; do { try JSONEncoder().encode(documents).write(to:url,options:.atomic); try FileManager.default.setAttributes([.posixPermissions:0o600],ofItemAtPath:url.path) } catch { self.error = error.localizedDescription } }
+    func save() { guard writable else { error = "Existing research is unreadable; back up and repair the file before saving."; return }; cachedPassages = nil; do { try JSONEncoder().encode(documents).write(to:url,options:.atomic); try FileManager.default.setAttributes([.posixPermissions:0o600],ofItemAtPath:url.path) } catch { self.error = error.localizedDescription } }
     func add(_ url: URL,kind: String,sourceURL: String = "",verificationNote: String = "",primaryConfirmed: Bool = false) throws {
         if primaryConfirmed {
             guard let link = URL(string:sourceURL), ["https","http"].contains(link.scheme ?? ""), link.host != nil,

@@ -180,7 +180,7 @@ class InterviewRunner:
             self.notify("finished",None)
 
     def serializable_setup(self):
-        return {k:v for k,v in self.setup.items() if not k.endswith("_provider")}
+        return {k:v for k,v in self.setup.items() if k in {"topic","source","purpose","stage","goals","mode","language","transcription","analysis"}}
 
     def capture_error(self,message):
         self.notify("error",message);self.stop_event.set()

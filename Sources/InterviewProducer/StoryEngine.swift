@@ -51,7 +51,7 @@ actor StoryEngine {
     func review(record: InterviewRecord,directions: [StoryDirection],context: StoryPreparedContext) async throws -> [StoryUpdate] {
         let selected = try await selectedTranscript(record)
         let candidates = Self.unique(selected.evidence+context.evidence)
-        let output = try await inference(StoryPrompts.safety+"\n"+EditorialProfile.mission+"\n"+StoryPrompts.review,
+        let output = try await inference(StoryPrompts.safety+"\n"+EditorialProfile.forInterview(record)+"\n"+StoryPrompts.review,
                                         Self.context(directions)+"\n"+context.prompt+"\nCURRENT INTERVIEW: \(StoryEvidence.source(record))\n\(selected.scope)\n"+selected.evidence.map(\.prompt).joined(separator:"\n\n"))
         try Task.checkCancellation()
         struct Response: Decodable { var directions: [StoryLead] }
@@ -64,7 +64,7 @@ actor StoryEngine {
         let candidates = Self.unique(selected.evidence+context.evidence)
         let prompt = Self.context(directions)+"\n"+context.prompt+"\nCURRENT INTERVIEW ID: \(record.id)\nSOURCE: \(StoryEvidence.source(record))\n"+selected.scope+"\n"+selected.evidence.map(\.prompt).joined(separator:"\n\n")
         guard prompt.count <= 90000 else { throw ProducerError.message("The selected report evidence exceeds the bounded request size. Split the interview into labeled parts; no partial report was saved.") }
-        let output = try await inference(StoryPrompts.safety+"\n"+EditorialProfile.mission+"\n"+StoryPrompts.report,prompt)
+        let output = try await inference(StoryPrompts.safety+"\n"+EditorialProfile.forInterview(record)+"\n"+StoryPrompts.report,prompt)
         try Task.checkCancellation()
         var result = try JSONDecoder().decode(StoryReport.self,from:Data(output.utf8))
         try Self.validateReport(&result,evidence:candidates,currentID:record.id)

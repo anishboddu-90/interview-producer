@@ -18,12 +18,12 @@ cat > "$app/Contents/Info.plist" <<'PLIST'
 <key>CFBundleName</key><string>Interview Producer</string>
 <key>CFBundleDisplayName</key><string>Interview Producer</string>
 <key>CFBundlePackageType</key><string>APPL</string>
-<key>CFBundleShortVersionString</key><string>0.4.4</string>
-<key>CFBundleVersion</key><string>8</string>
+<key>CFBundleShortVersionString</key><string>0.5.0</string>
+<key>CFBundleVersion</key><string>9</string>
 <key>LSMinimumSystemVersion</key><string>15.0</string>
 <key>NSMicrophoneUsageDescription</key><string>Record your side of a consented interview for transcription.</string>
-<key>NSAudioCaptureUsageDescription</key><string>Capture only Zoom output to transcribe the interviewee, after you start recording.</string>
-<key>NSScreenCaptureUsageDescription</key><string>Capture Zoom audio using ScreenCaptureKit if process taps are unavailable. No video is saved.</string>
+<key>NSAudioCaptureUsageDescription</key><string>Capture the selected call application output to transcribe the interviewee, after you start recording.</string>
+<key>NSScreenCaptureUsageDescription</key><string>Capture selected call application audio using ScreenCaptureKit if process taps are unavailable. No video is saved.</string>
 <key>NSHighResolutionCapable</key><true/>
 </dict></plist>
 PLIST

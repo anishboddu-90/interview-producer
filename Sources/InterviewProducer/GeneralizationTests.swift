@@ -26,6 +26,23 @@ import Foundation
         var mic = initial; mic.captureMode = "Microphone only"; mic.applicationID = ""
         check((try? mic.validate()) != nil && mic.microphoneOnly,"in-person mode does not require a call application")
         check(StoryDirection.initial.first?.id == "subject","new investigation lanes are topic-neutral")
+        var frozenRecord = InterviewRecord(); frozenRecord.setupContext = "SAVED original transit project"
+        check(EditorialProfile.forInterview(frozenRecord).contains("SAVED original transit project"),"old interviews retain their recorded setup in later reports")
+        var verify = initial; verify.stage = "Verification"
+        check(verify.stageRules.contains("primary records"),"verification prioritizes primary records")
+        verify.purpose = "Meeting"
+        check(verify.stageRules.contains("Do not impose a publication pitch"),"meeting purpose does not inherit publication goals")
+        let folder = FileManager.default.temporaryDirectory.appendingPathComponent("InterviewProducer-neutral-tests-\(UUID())")
+        do {
+            try FileManager.default.createDirectory(at:folder,withIntermediateDirectories:true)
+            defer { try? FileManager.default.removeItem(at:folder) }
+            let file = folder.appendingPathComponent("research.json")
+            let empty = ResearchLibrary(url:file)
+            check(empty.documents.isEmpty && !FileManager.default.fileExists(atPath:file.path),"fresh research contains no asserted facts and writes no starter data")
+            try Data("unreadable original".utf8).write(to:file)
+            let broken = ResearchLibrary(url:file); broken.save()
+            check(try String(contentsOf:file) == "unreadable original" && !broken.error.isEmpty,"unreadable existing research is preserved")
+        } catch { check(false,"research isolation: \(error.localizedDescription)") }
         let config = APIConfiguration(baseURL:"https://example.test/v1",model:"chosen-model")
         for bad in ["http://example.test/v1","https://user:secret@example.test/v1","https://example.test/v1?key=hidden","https://example.test/v1#fragment"] {
             rejects("unsafe API base rejected") { _ = try APIConfiguration(baseURL:bad,model:"chosen-model").endpoint("chat/completions") }
