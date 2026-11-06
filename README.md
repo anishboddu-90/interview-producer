@@ -1,7 +1,77 @@
 # Interview Producer
 
-A native interview and research assistant. The macOS app records consented interviews, preserves verbatim conversation memory, retrieves relevant passages automatically, and suggests evidence-linked follow-ups.
+A desktop assistant for consented interviews, research conversations, oral histories, meetings and interview practice. It keeps original material local, retrieves relevant history automatically, and suggests a small number of evidence-linked follow-up questions.
 
-This repository contains application source and fictional test fixtures. Personal archives, recordings, credentials and installed user data are excluded. See LICENSE and NOTICE.md for licensing.
+**macOS:** native SwiftUI application, macOS 15 or later. **Windows:** experimental native desktop preview for Windows 10/11 x64. See [platform support](docs/PLATFORMS.md) before relying on the preview.
 
-Build on macOS 15+: `make test` and `make app`.
+## What it does
+
+- Set a topic, goals, purpose and interview stage. Use discovery, follow-up, verification or wrap-up guidance without a predefined subject or protagonist.
+- Capture a selected call application's audio plus a microphone on macOS, or use microphone-only recording for in-person conversations. Select your microphone and transcription language.
+- Save timestamped transcripts incrementally, record source channels separately, and export complete interview JSON, TXT or Markdown on macOS.
+- Import selected conversations from official ChatGPT ZIPs, including numbered JSON shards and branches. Preserve original wording, roles, dates, metadata and conversational order. SQLite FTS5 indexes overlapping verbatim passages locally.
+- Retrieve history automatically during interviews. Keep original observations, later corrections, source testimony and assistant interpretations distinct. Inspect references and exact excerpts behind suggestions.
+- Maintain a small editable research dossier alongside the complete originals. Search, annotate, pin, exclude and delete imported material.
+- Prepare persistent source-specific question banks. Manual Next Question is always available; automatic lull detection is off by default on macOS and unavailable in the Windows preview.
+- Compare interviews and research, prepare source-specific briefs, and generate evidence-attributed reports on macOS. Existing stored formats and the legacy investigation lane remain readable.
+
+New installations contain no personal research, prepared bank or asserted publication history. Synthetic rehearsal data is clearly labeled and runs in separate storage.
+
+## Start on macOS
+
+```sh
+make test
+make app
+open 'dist/Interview Producer.app'
+```
+
+Builds use Apple Command Line Tools, system SQLite and the included SpeexDSP source. No local model, paid embeddings, virtual audio driver or browser server is needed. The development app is ad hoc signed; it is not notarized. Existing installations keep the same app identity and local data.
+
+1. Open **Interview setup**. Set your topic, purpose, stage, audio source, microphone and language.
+2. Open **Connection** and explicitly configure/test your transcription and text providers.
+3. Import relevant research, conversation memory and prepared questions if useful.
+4. Obtain recording and selected-provider processing consent. Start the interview and check the audio meters while people speak.
+5. Click **Stop** and let pending transcription finish. Use **Archive** to inspect and export the complete saved transcript and recordings.
+
+Use headphones. Microphone-only mode records one physical input channel and does not identify individual people. For a call, open the selected application before starting. Browser routing can include unrelated tabs. Other applications/devices need verification on the intended machine.
+
+## AI connections
+
+Text and audio are independently selectable; there is no automatic provider fallback.
+
+| Route | Text analysis | Transcription | Credential storage |
+| --- | --- | --- | --- |
+| Granted ChatGPT-plan connection | macOS | No | macOS Keychain |
+| Existing Groq route | macOS | macOS | macOS Keychain; explicit plan confirmation and conservative budgets |
+| Explicit compatible HTTPS API | Both platforms | Both platforms | macOS Keychain / Windows Credential Locker |
+
+The optional compatible route accepts `chat/completions` for text and `audio/transcriptions` for audio. Supply the provider's exact base URL and model ID. OpenAI API keys are supported through these documented protocols; other services must implement the same request/response contract. Anthropic-native and Gemini-native APIs are not implemented. Provider billing, model availability and retention differ; a ChatGPT subscription does not include API billing. See [provider configuration](docs/PROVIDERS.md).
+
+No credentials, imported history or recordings are included in this repository. No real API inference is performed by CI. Relevant excerpts are sent only to the explicitly selected provider during an operation that uses it. The entire conversation export is never automatically uploaded.
+
+## Windows preview
+
+Use the Windows artifact generated by [Build and verify](.github/workflows/ci.yml), or build locally:
+
+```powershell
+cd Windows
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python -m interview_producer
+```
+
+It offers native desktop controls, microphone/WASAPI loopback recording, compatible cloud APIs, automatic local-history retrieval, cited follow-ups, source-specific questions, dossiers, archive viewing and JSON/TXT autosave. **System-output mode captures the entire playback device**, not a specific application. It is a separate preview sharing the product's storage/provenance conventions; it does not rebuild or replace the macOS app. Full macOS feature parity and physical Windows audio verification remain outstanding.
+
+## Verification and contribution
+
+```sh
+make test                                      # Native deterministic suite, no microphone/cloud
+python3 Scripts/check-repository.py             # Tracked source privacy guard
+cd Windows
+python3 -m unittest discover -s tests -v         # Portable memory/provider/controller checks
+```
+
+CI builds both platforms and smoke-tests the packaged Windows app. Build success does not establish real-call audio accuracy, physical global-shortcut delivery, screen-share exclusion, provider availability or model judgment. See [verification](docs/VERIFICATION.md), [architecture](docs/ARCHITECTURE.md), [privacy](docs/PRIVACY.md) and [contributing](CONTRIBUTING.md).
+
+GPL-3.0. This project derives its macOS audio foundation from [Parrot](https://github.com/turantekin/Parrot). Preserve [NOTICE.md](NOTICE.md), LICENSE and the vendored SpeexDSP notices when redistributing.
