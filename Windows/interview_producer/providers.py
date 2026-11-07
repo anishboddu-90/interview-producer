@@ -35,17 +35,19 @@ class Provider:
     def save_key(self, kind, key):
         # keyring delegates to Windows Credential Locker; never plaintext configuration.
         import keyring
+        from keyring.backends.Windows import WinVaultKeyring
+        backend = WinVaultKeyring()
         if key:
-            keyring.set_password("InterviewProducer",self.account(kind),key)
+            backend.set_password("InterviewProducer",self.account(kind),key)
         else:
             try:
-                keyring.delete_password("InterviewProducer",self.account(kind))
+                backend.delete_password("InterviewProducer",self.account(kind))
             except keyring.errors.PasswordDeleteError:
                 pass
 
     def key(self, kind):
-        import keyring
-        key = keyring.get_password("InterviewProducer",self.account(kind))
+        from keyring.backends.Windows import WinVaultKeyring
+        key = WinVaultKeyring().get_password("InterviewProducer",self.account(kind))
         if not key:
             raise ValueError(f"Save a {kind} key for this exact endpoint in Connection.")
         return key

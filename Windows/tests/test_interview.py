@@ -75,6 +75,22 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(saved["lines"],[]);self.assertEqual(len(saved["gaps"]),1)
             self.assertIn("outage",saved["gaps"][0]["reason"])
 
+    def test_stop_signals_capture_before_blocked_transcription_completes(self):
+        entered=threading.Event();release=threading.Event();done=threading.Event()
+        class BlockingAudio:
+            def transcribe(self,*args):entered.set();release.wait(3);return "Saved final answer."
+        class SignalRecorder(FakeRecorder):
+            def __init__(self,*args):super().__init__(*args);self.stop_event=threading.Event()
+        with tempfile.TemporaryDirectory() as temp:
+            runner=InterviewRunner(Path(temp),{"source":"Synthetic Source","mode":"Microphone only","transcription":True,"analysis":False,"audio_provider":BlockingAudio()},lambda k,v:done.set() if k=="finished" else None,recorder_factory=SignalRecorder)
+            runner.start();self.assertTrue(entered.wait(2))
+            runner.stop()
+            self.assertTrue(runner.recorder.stop_event.is_set(),"Device reader must stop while HTTP is still blocked")
+            self.assertFalse(done.is_set())
+            release.set();self.assertTrue(done.wait(3));runner.thread.join(1)
+            record=json.loads(next((Path(temp)/"Interviews").glob("*.json")).read_text())
+            self.assertEqual(record["status"],"stopped");self.assertEqual(record["lines"][0]["text"],"Saved final answer.")
+
     def test_capture_failure_cleans_session(self):
         class BrokenRecorder(FakeRecorder):
             def start(self):raise ValueError("Synthetic unavailable device")

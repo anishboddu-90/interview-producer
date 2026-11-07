@@ -114,7 +114,7 @@ class InterviewRunner:
         self.pending=queue.Queue(maxsize=16);self.stop_event=threading.Event()
         self.overflow=queue.SimpleQueue()
         self.session_factory,self.recorder_factory=session_factory,recorder_factory
-        self.thread=None;self.last_request=0;self.last_analysis=0
+        self.thread=None;self.last_request=0;self.last_analysis=0;self.recorder=None
 
     def start(self):
         self.thread=threading.Thread(target=self.run,daemon=True);self.thread.start()
@@ -125,7 +125,10 @@ class InterviewRunner:
             self.overflow.put(chunk[:3]);self.notify("status","Transcription backlog full; audio continues recording locally.")
 
     def stop(self):
-        self.stop_event.set();self.notify("status","Stopping capture and draining queued transcription…")
+        self.stop_event.set()
+        # Signal the device reader immediately, even while the worker awaits an HTTP response.
+        if self.recorder and hasattr(self.recorder,"stop_event"):self.recorder.stop_event.set()
+        self.notify("status","Stopping capture and draining queued transcription…")
 
     def run(self):
         recorder=None;memory=None;session=None
@@ -135,6 +138,7 @@ class InterviewRunner:
             session=self.session_factory(self.root/"Interviews",self.setup["source"],self.setup.get("topic",""),self.serializable_setup())
             self.notify("session",session.record["id"])
             recorder=self.recorder_factory(self.root/"Audio"/session.record["id"],self.setup["mode"],self.enqueue,lambda message:self.capture_error(message),lambda role,value:self.notify("level",(role,value)))
+            self.recorder=recorder
             recorder.start()
             session.record["micAudioPath"]=recorder.paths.get("me")
             session.record["systemAudioPath"]=recorder.paths.get("them");session.save()
@@ -162,7 +166,7 @@ class InterviewRunner:
                         session.append(role,start,end,text);self.notify("transcript",session.transcript())
                 except Exception as error:
                     session.gap(role,start,end,str(error));self.notify("status",f"Transcription gap: {error}")
-                if self.setup.get("analysis") and not stopped and session.record["lines"] and time.monotonic()-self.last_analysis>20:
+                if self.setup.get("analysis") and not stopped and not self.stop_event.is_set() and session.record["lines"] and time.monotonic()-self.last_analysis>20:
                     self.last_analysis=time.monotonic()
                     try:
                         historical,context=make_context(session,memory,self.serializable_setup())
