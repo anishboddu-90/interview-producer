@@ -44,12 +44,16 @@ struct StoryBrief: Codable, Identifiable, Sendable {
     var content: StoryBriefContent
     var evidence: [ResearchEvidence] = []
     var markdown: String {
-        "# Pre-interview brief — \(source)\n\n\(content.positioning)\n\n## Previous reporting\n" + content.established.map(\.markdown).joined(separator:"\n") +
-        "\n\n## Open questions\n" + content.open_questions.map { "- \($0)" }.joined(separator:"\n") +
-        "\n\n## Hypotheses to test\n" + content.hypotheses.map { "- \($0)" }.joined(separator:"\n") +
-        "\n\n## Ten questions\n" + content.questions.enumerated().map { "\($0.offset+1). \($0.element)" }.joined(separator:"\n") +
-        "\n\n## Three essentials\n" + content.essential_indices.filter { (1...content.questions.count).contains($0) }.map { "- \(content.questions[$0-1])" }.joined(separator:"\n") +
-        "\n\n## Sensitive or disputed claims — neutral questioning\n" + content.sensitive.map(\.markdown).joined(separator:"\n")
+        var sections = ["# Pre-interview brief — \(source)", content.positioning]
+        sections.append("## Previous reporting\n" + content.established.map(\.markdown).joined(separator:"\n"))
+        sections.append("## Open questions\n" + content.open_questions.map { "- \($0)" }.joined(separator:"\n"))
+        sections.append("## Hypotheses to test\n" + content.hypotheses.map { "- \($0)" }.joined(separator:"\n"))
+        let questions = content.questions.enumerated().map { "\($0.offset+1). \($0.element)" }.joined(separator:"\n")
+        sections.append("## Ten questions\n" + questions)
+        let essentials = content.essential_indices.filter { (1...content.questions.count).contains($0) }.map { "- \(content.questions[$0-1])" }.joined(separator:"\n")
+        sections.append("## Three essentials\n" + essentials)
+        sections.append("## Sensitive or disputed claims — neutral questioning\n" + content.sensitive.map(\.markdown).joined(separator:"\n"))
+        return sections.joined(separator:"\n\n")
     }
 }
 struct StoryBriefContent: Codable, Sendable {

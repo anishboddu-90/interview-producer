@@ -41,7 +41,7 @@ import Foundation
             check(empty.documents.isEmpty && !FileManager.default.fileExists(atPath:file.path),"fresh research contains no asserted facts and writes no starter data")
             try Data("unreadable original".utf8).write(to:file)
             let broken = ResearchLibrary(url:file); broken.save()
-            check(try String(contentsOf:file) == "unreadable original" && !broken.error.isEmpty,"unreadable existing research is preserved")
+            check(try String(contentsOf:file,encoding:.utf8) == "unreadable original" && !broken.error.isEmpty,"unreadable existing research is preserved")
         } catch { check(false,"research isolation: \(error.localizedDescription)") }
         let config = APIConfiguration(baseURL:"https://example.test/v1",model:"chosen-model")
         for bad in ["http://example.test/v1","https://user:secret@example.test/v1","https://example.test/v1?key=hidden","https://example.test/v1#fragment"] {
