@@ -1,5 +1,9 @@
 # Verification — 0.5.0
 
+Release check, November 8, 2026: **344/344 native macOS checks** and **16/16 portable Windows tests** pass. [GitHub run 42564567003](https://github.com/anishboddu-90/interview-producer/actions/runs/42564567003) passed privacy, macOS and Windows jobs at code commit `726c992`. Both native packages built; the Windows packaged executable passed its GUI/storage bootstrap. These results contain no real account inference or physical Windows audio test.
+
+Native breakdown: setup/providers 32; editorial core 46; memory 78; Story Editor 66; Lifeline 62; combined controller 60. Windows includes a blocked-provider Stop regression confirming that the audio reader is signaled before a pending HTTP request completes.
+
 Deterministic macOS checks cover the actual interview controller, both source-channel fixtures, transcription queue bounds, Start/Stop/cancellation, memory retrieval/corrections, Lifeline, evidence validation, reporting, exports and reload. New setup/provider checks cover neutral defaults, editable purposes/stages, persisted settings, HTTPS endpoint validation, endpoint-scoped keys, auto language, custom request/response contracts, truncation/quota rejection and nonfinite audio samples. They do not use a real microphone, account or API.
 
 Portable Windows tests cover official sharded ZIP selection, exact original object bytes, parent-only graph ordering, branch exclusion, direct observations/corrections, source references, annotations/pins/exclusion/deletion, dossier versions, session autosave, citation validation and duplicate suppression. A combined injected-device/provider interview traverses capture orchestration, transcription, automatic memory, evidence-linked suggestion, Stop and disk reload. Failure scenarios cover unavailable capture and transcription outages. No physical device or network inference is used.
