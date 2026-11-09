@@ -1,12 +1,23 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")/.."
-swift build -c release --disable-index-store -j 2
+# Avoid embedding the build user's home path in Swift debug data or C __FILE__ assertions.
+swift build -c release --disable-index-store -j 2 \
+  -Xswiftc -file-prefix-map -Xswiftc "$PWD=." \
+  -Xswiftc -debug-prefix-map -Xswiftc "$PWD=." \
+  -Xcc "-ffile-prefix-map=$PWD=." -Xcc "-fdebug-prefix-map=$PWD=."
 stage=$(mktemp -d "${TMPDIR:-/tmp}/interview-producer.XXXXXX")
 trap 'rm -rf "$stage"' EXIT
 app="$stage/Interview Producer.app"
 mkdir -p "$app/Contents/MacOS" "$app/Contents/Resources"
 cp -X .build/release/InterviewProducer "$app/Contents/MacOS/InterviewProducer"
+strip -S "$app/Contents/MacOS/InterviewProducer"
+python3 - "$app/Contents/MacOS/InterviewProducer" <<'PYVERIFY'
+from pathlib import Path
+import sys
+if str(Path.home()).encode() in Path(sys.argv[1]).read_bytes():
+    raise SystemExit("Release privacy check failed: build-user home path remains embedded")
+PYVERIFY
 mkdir -p "$app/Contents/Resources/Rehearsal-audio"
 cp -X Tests/Fixtures/Rehearsal/turn-*.wav Tests/Fixtures/Rehearsal/manifest.json "$app/Contents/Resources/Rehearsal-audio/"
 cat > "$app/Contents/Info.plist" <<'PLIST'

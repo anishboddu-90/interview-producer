@@ -1,6 +1,6 @@
 # Privacy and local data
 
-The repository and build artifacts contain source and fictional fixtures. They exclude imported conversations, research files, personal question banks, session archives, recordings, credentials, local verification logs and database backups. The privacy guard scans tracked files before CI builds. Maintainers can additionally pass a private JSON deny-list from outside the repository using `--deny-file`.
+The repository and build artifacts contain source and fictional fixtures. They exclude imported conversations, research files, personal question banks, session archives, recordings, credentials, local verification logs and database backups. The privacy guard scans tracked files before CI builds. Release compilation remaps Swift/C source paths, strips debug information before signing, and checks that the build user’s home path is absent from the executable. Maintainers can additionally pass a private JSON deny-list from outside the repository using `--deny-file`.
 
 macOS retains the existing `org.interviewproducer.mac` app identity. Installed user data remains under `~/Library/Application Support/InterviewProducer/`; secrets remain in macOS Keychain. Windows preview data is under `%LOCALAPPDATA%\InterviewProducer\`; keys use Windows Credential Locker. The app relies on the current OS user's account protections. It does not encrypt all local content or isolate independent projects/users within one account.
 
